@@ -23,7 +23,7 @@ class Solution:
                 print("Divide By Zero")
         return arr
 
-    def productExceptSelf(self, nums):
+    def productExceptSelf3(self, nums):
         length=len(nums)
         arr=[1]*length
         pre=[1]*length
@@ -40,6 +40,21 @@ class Solution:
 
         for m in range(0,length):
             arr[m]=pre[m]*suff[m]
+        return arr
+
+    def productExceptSelf4(self, nums):
+        length=len(nums)
+        arr=[1]*length
+        curr=1
+        for i in range(0,length):
+            arr[i]*=curr
+            curr*=nums[i]
+
+        curr=1
+        for j in range(length-1,-1,-1):
+            arr[j]*=curr
+            curr*=nums[j]
+
         return arr
     
     
