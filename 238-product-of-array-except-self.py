@@ -22,3 +22,24 @@ class Solution:
             except:
                 print("Divide By Zero")
         return arr
+
+    def productExceptSelf(self, nums):
+        length=len(nums)
+        arr=[1]*length
+        pre=[1]*length
+        suff=[1]*length
+        print(arr,pre,suff)
+
+        for i in range(1,length):
+            pre[i]=pre[i-1]*nums[i-1]
+            print(pre)
+
+        for j in range(length-2,-1,-1):
+            suff[j]=suff[j+1]*nums[j+1]
+            print(suff)
+
+        for m in range(0,length):
+            arr[m]=pre[m]*suff[m]
+        return arr
+    
+    
